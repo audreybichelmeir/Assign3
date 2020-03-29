@@ -42,32 +42,20 @@ bool fileReader::isBalanced(string& line, int& lineCounter, GenStack<char>& stor
   // Traversing the Expression
   	for (int i = 0; i < line.size(); ++i)
   	{
-      cout << "wok" << endl;
+      cout << "wtfff" << endl;
       cout << "f: " << line[i] << endl;
       if (line[i] ==  LEFT_ROUND_PARENTHESIS || line[i] ==  LEFT_SQUARE_BRACKETS || line[i] ==  LEFT_CURLY_BRACKETS)
   		{
         cout << "g: " << line[i] << endl;
         // Push the element in the stack
-        cout << "boo" << endl;
+        cout << "wtf" << endl;
         store.push(line[i]);
   			continue;
   		}
       else{
-        cout << "yo" << endl;
+        cout << "doesn't do shit" << endl;
       }
 
-  		// IF current current character is not opening
-  		// bracket, then it must be closing. So stack
-  		// cannot be empty at this point.
-  		if (store.isEmpty())
-  		return false;
-
-  		if(line[i] == RIGHT_ROUND_PARENTHESIS){
-        x = store.peek();
-  			store.pop();
-  			if (x == LEFT_CURLY_BRACKETS || x == LEFT_SQUARE_BRACKETS)
-  				return false;
-  			break;
       }
   	}
 
