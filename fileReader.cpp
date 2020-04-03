@@ -26,6 +26,7 @@ string fileReader::filePrompt(string error)
   readAFile(fileChecker);
 }
 
+
 string fileReader::readAFile(string file){
   fileReader fr;
   string line = " ";
@@ -37,9 +38,7 @@ string fileReader::readAFile(string file){
   if (!inputStream)
   {
     cout << file << " does not exist. " << endl;
-    //exit(1);
-    string error = "error";
-    filePrompt(error);
+    exit(1);
   }
 
   while(getline(inputStream, line))
@@ -91,11 +90,5 @@ string fileReader::readAFile(string file){
     else{
       cout << "no delimeter to be found " << endl;
     }
-  }
-  if(store.isEmpty()){
-    cout << "Perfectly balanced, as things should be" << endl;
-  }
-  else{
-    cout << "Not Balanced" << endl;
   }
 }
