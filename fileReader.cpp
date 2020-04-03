@@ -9,24 +9,6 @@ fileReader::~fileReader(){
 
 }
 
-string fileReader::filePrompt(string error)
-{
-
-  string fileChecker = " ";
-  bool isGood = false;
-
-  while(!isGood)
-  {
-    cout << "Enter file name:" << endl;
-    cin >> fileChecker;
-    if(fileChecker.length() > 0){
-      isGood = true;
-    }
-  }
-  readAFile(fileChecker);
-}
-
-
 string fileReader::readAFile(string file){
   fileReader fr;
   string line = " ";
@@ -44,12 +26,17 @@ string fileReader::readAFile(string file){
   while(getline(inputStream, line))
   {
     isBalanced(line, lineCounter, store, inputStream);
+    //isBalanced(line, lineCounter, store, inputStream, LEFT_ROUND_PARENTHESIS, RIGHT_ROUND_PARENTHESIS, LEFT_CURLY_BRACKETS, RIGHT_CURLY_BRACKETS, LEFT_SQUARE_BRACKETS, RIGHT_SQUARE_BRACKETS);
     ++lineCounter;
   }
   inputStream.close();
 }
  void fileReader::isBalanced(string& line, int& lineCounter, GenStack<char>& store, fstream& inputStream)
+//void fileReader::isBalanced(string& line, int& lineCounter, GenStack<char>& store, fstream& inputStream, char& LEFT_ROUND_PARENTHESIS, char& RIGHT_ROUND_PARENTHESIS, char& LEFT_CURLY_BRACKETS, char& RIGHT_CURLY_BRACKETS, char& LEFT_SQUARE_BRACKETS, char& RIGHT_SQUARE_BRACKETS)
 {
+
+//int delimiterLeft = line.length();
+  //
   cout << line << endl;
   for (int i = 0; i < line.length(); ++i)
   {
@@ -64,8 +51,6 @@ string fileReader::readAFile(string file){
     {
       // If current current character is not opening bracket, then it must be closing. So stack cannot be empty at this point.
       if (store.isEmpty()){
-        //cout << "Missing an open delimeter of " << store.peek() << endl;
-        continue;
         cout << "Missing an open delimiter at line " << lineCounter << endl;
         exit(1);
       } // end of if isEmpty()
@@ -87,8 +72,14 @@ string fileReader::readAFile(string file){
         exit(1);
       }
     } // end of if right delimeter statement
-    else{
-      cout << "no delimeter to be found " << endl;
-    }
+    // else{
+    //   cout << "no delimeter to be found" << endl;
+    // }
   }
-}
+  if(store.isEmpty()){
+    cout << "Perfectly balanced, as things should be" << endl;
+  }
+  else{
+    cout << "Unbalanced" << endl;
+  }
+}// end of isBalanced()
