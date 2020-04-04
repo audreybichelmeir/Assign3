@@ -9,7 +9,7 @@ fileReader::~fileReader(){
 
 }
 
-string fileReader::filePrompt(string error)
+void fileReader::filePrompt(string error)
 {
 
   string fileChecker = " ";
@@ -26,7 +26,7 @@ string fileReader::filePrompt(string error)
   readAFile(fileChecker);
 }
 
-string fileReader::readAFile(string file){
+void fileReader::readAFile(string file){
   fileReader fr;
   string line = " ";
   int lineCounter = 1; //beginning of a file starts at 1
@@ -104,13 +104,15 @@ string fileReader::readAFile(string file){
 }// end of isBalanced()
 
 char fileReader::Pair(char c){
+  char x = ' ';
   if (c == LEFT_ROUND_PARENTHESIS){
-    return RIGHT_ROUND_PARENTHESIS;
+    x = RIGHT_ROUND_PARENTHESIS;
   }
   if (c == LEFT_SQUARE_BRACKETS){
-    return RIGHT_SQUARE_BRACKETS;
+    x = RIGHT_SQUARE_BRACKETS;
   }
   if (c == LEFT_CURLY_BRACKETS){
-    return RIGHT_CURLY_BRACKETS;
+    x = RIGHT_CURLY_BRACKETS;
   }
+  return x;
 }
