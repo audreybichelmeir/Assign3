@@ -46,6 +46,8 @@ Peter Chen
 General Logic -- understanding first one must push then same pop it.
 
 Known Error
+correct1.txt prints out Perfectly balanced, as things should be twice it should only be once... if I change the isEmpty at line 89 and error will happen
+
 the file will run if the user types out the file (e.g. correct1.txt) sometimes if the the up button is pressed with an incorrect text file
 ex.
 ./a.out incorrect1.txt
@@ -55,6 +57,7 @@ ex.
 ./a.out incorrect2.txt (up arrow for this is fine)
 ./a.out incorrect3.txt (up arrow for this is NOT fine)
 
+works to some extent
 it will run BUT after user will get this
 *** Error in `./a.out': free(): invalid pointer: 0x00007ff5e49e3980 ***
 ======= Backtrace: =========
