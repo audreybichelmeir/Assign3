@@ -67,7 +67,7 @@ void fileReader::readAFile(string file){
       if (store.isEmpty()){
         cout << "There is an unmatched delimeter at line: " << lineCounter << endl;
           cout << "At position " << i << " " << line[i] << endl;
-        exit(1);
+        break;
       } // end of if isEmpty()
       if(line[i] ==  RIGHT_ROUND_PARENTHESIS && store.peek() == LEFT_ROUND_PARENTHESIS && (!store.isEmpty())){
         store.pop();
@@ -88,7 +88,7 @@ void fileReader::readAFile(string file){
       {
         cout << "There is an unmatched delimeter at line: " << lineCounter << endl;
         cout << "At position " << i << " is a " << line[i] << " should be a " << Pair(store.peek()) << " instead." << endl;
-        exit(1);
+        break;
       }
     } // end of if right delimeter statement
     // else{

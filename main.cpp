@@ -5,29 +5,37 @@ using namespace std;
 
 int main(int argc, char **argv)
 {
-string error = "error";
-string file = " ";
-  if(argc > 1){
+  string error = "error";
+  string file = " ";
+  if (argc > 1)
+  {
     file = argv[1];
     fileReader *fr = new fileReader();
     fr->readAFile(file);
     delete fr;
   }
-  // else{
-  //   fileReader *fr = new fileReader();
-  //   fr->filePrompt(error);
-  //   delete fr;
-  // }
+  else{
+    fileReader *fr = new fileReader();
+    fr->filePrompt(error);
+    delete fr;
+  }
 
-  while(true){
+  while (true)
+  {
     string user = " ";
+    string input = " ";
     cout << "Do you want to enter another file (Y/N)" << endl;
     cin >> user;
-    if(user != "Y"){
+    if (user != "Y")
+    {
       break;
-    }else{
+    }
+    else
+    {
+      cout << "Please enter a filename: " << endl;
+      cin >> input;
       fileReader *fr = new fileReader();
-      fr->readAFile(file);
+      fr->readAFile(input);
       delete fr;
     }
   }
