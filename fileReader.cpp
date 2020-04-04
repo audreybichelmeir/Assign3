@@ -51,6 +51,7 @@ void fileReader::readAFile(string file){
  void fileReader::isBalanced(string& line, int& lineCounter, GenStack<char>& store, fstream& inputStream)
 //void fileReader::isBalanced(string& line, int& lineCounter, GenStack<char>& store, fstream& inputStream, char& LEFT_ROUND_PARENTHESIS, char& RIGHT_ROUND_PARENTHESIS, char& LEFT_CURLY_BRACKETS, char& RIGHT_CURLY_BRACKETS, char& LEFT_SQUARE_BRACKETS, char& RIGHT_SQUARE_BRACKETS)
 {
+  bool errorEmpty = false;
   //cout << line << endl;
   for (int i = 0; i < line.length(); ++i)
   {
@@ -67,6 +68,7 @@ void fileReader::readAFile(string file){
       if (store.isEmpty()){
         cout << "There is an unmatched delimeter at line: " << lineCounter << endl;
           cout << "At position " << i << " " << line[i] << endl;
+          errorEmpty = true;
         break;
       } // end of if isEmpty()
       if(line[i] ==  RIGHT_ROUND_PARENTHESIS && store.peek() == LEFT_ROUND_PARENTHESIS && (!store.isEmpty())){
@@ -95,11 +97,17 @@ void fileReader::readAFile(string file){
     //   cout << "no delimeter to be found" << endl;
     // }
   }
-  if(store.isEmpty()){
-    cout << "Perfectly balanced, as things should be" << endl;
-  }
-  else{
-    cout << "End of file: Missing a " << Pair(store.pop()) << endl;
+
+  if(errorEmpty != true)
+  {
+    if (store.isEmpty())
+    {
+      cout << "Perfectly balanced, as things should be" << endl;
+    }
+    else
+    {
+      cout << "End of file: Missing a " << Pair(store.pop()) << endl;
+    }
   }
 }// end of isBalanced()
 
