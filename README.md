@@ -53,40 +53,11 @@ general printing out statements
 
 Peter Chen
 General Logic -- understanding first one must push then same pop it.
+while loop to prompt the user for a file
+errorEmpty throughout the code
+Pair char x assignment
+adding break statements in the fileReader.cpp
+
 
 Known Error
-correct1.txt prints out Perfectly balanced, as things should be twice it should only be once... if I change the isEmpty at line 89 and error will happen
-
-if the user does not gives a file in the command line filePrompt runs and gets the users file input
-it does not works for ... bc it will give the same Backtrace error
-correct1.txt
-correct2.txt
-incorrect3.txt
-
-works for:
-incorrect1.txt
-incorrect2.txt
-
-
-the file will run if the user types out the file (e.g. correct1.txt) sometimes if the the up button is pressed with an incorrect text file
-ex.
-./a.out incorrect1.txt
-./a.out incorrect2.txt
-./a.out incorrect3.txt
-./a.out incorrect1.txt (up arrow for this is fine)
-./a.out incorrect2.txt (up arrow for this is fine)
-./a.out incorrect3.txt (up arrow for this is NOT fine)
-
-works to some extent
-it will run BUT after user will get this
-*** Error in `./a.out': free(): invalid pointer: 0x00007ff5e49e3980 ***
-======= Backtrace: =========
-/lib/x86_64-linux-gnu/libc.so.6(+0x70bfb)[0x7ff5e3e1bbfb]
-/lib/x86_64-linux-gnu/libc.so.6(+0x76fc6)[0x7ff5e3e21fc6]
-/lib/x86_64-linux-gnu/libc.so.6(+0x7780e)[0x7ff5e3e2280e]
-./a.out(+0x21b1)[0x55f55c87c1b1]
-/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf1)[0x7ff5e3dcb2e1]
-./a.out(+0x13ea)[0x55f55c87b3ea]
-======= Memory map: ========
-
-etc....
+Unknown at the moment
