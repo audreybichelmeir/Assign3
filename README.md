@@ -26,8 +26,8 @@ without make file g++ *.cpp
 
 
 References:
-• GenStack - Rene
 
+TEXTBOOKS
 • Michael T Goodrich, Roberto Tamassia, David M Mount - Data structures and algorithms in C++-Wiley (2011) page 205
 used textbook for general outline
 
@@ -37,6 +37,15 @@ general reading from a file
 • Michael Main, Walter Savitch - Data Structures and Other Objects Using C++ (4th Edition)-Pearson (2010) page 203 & 357
 general understand of getting a line to check delimiter
 easy code but returns a boolean (general idea)
+
+WEBSITES
+using fstream at the same time
+https://stackoverflow.com/questions/32435991/how-to-read-and-write-in-file-with-fstream-simultaneously-in-c
+https://stackoverflow.com/questions/44040800/writing-to-and-reading-from-a-file-at-the-same-time
+
+
+Rene
+GenStack
 
 Ryan Millares
 Pair function()
