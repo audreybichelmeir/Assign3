@@ -7,11 +7,7 @@ Chapman email: bichelmeir@chapman.edu
 Course number and section: Cpsc350 -02
 Assignment or exercise number: assignment3
 Files submitted:
-main
-
-
-Run file
-g++ main.cpp
+main.cpp
 GenStack.h
 fileReader.cpp
 fileReader.h
@@ -24,6 +20,7 @@ incorrect3.txt
 running the program
 make all
 make realclean
+without make file g++ *.cpp
 ./a.out textfile
 
 
@@ -44,6 +41,9 @@ easy code but returns a boolean (general idea)
 Ryan Millares
 Pair function()
 general printing out statements
+
+Peter Chen
+General Logic -- understanding first one must push then same pop it.
 
 Known Error
 the file will run if the user types out the file (e.g. correct1.txt) sometimes if the the up button is pressed with an incorrect text file
