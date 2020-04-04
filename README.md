@@ -48,6 +48,17 @@ General Logic -- understanding first one must push then same pop it.
 Known Error
 correct1.txt prints out Perfectly balanced, as things should be twice it should only be once... if I change the isEmpty at line 89 and error will happen
 
+if the user does not gives a file in the command line filePrompt runs and gets the users file input
+it does not works for ... bc it will give the same Backtrace error
+correct1.txt
+correct2.txt
+incorrect3.txt
+
+works for:
+incorrect1.txt
+incorrect2.txt
+
+
 the file will run if the user types out the file (e.g. correct1.txt) sometimes if the the up button is pressed with an incorrect text file
 ex.
 ./a.out incorrect1.txt
