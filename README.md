@@ -1,5 +1,5 @@
 # Assignment3
-Data Structures Assignment1
+Data Structures Assignment3
 
 Full name: Audrey Bichelmeir
 Student ID: 2327865
