@@ -9,6 +9,23 @@ fileReader::~fileReader(){
 
 }
 
+string fileReader::filePrompt(string error)
+{
+
+  string fileChecker = " ";
+  bool isGood = false;
+
+  while(!isGood)
+  {
+    cout << "Enter file name:" << endl;
+    cin >> fileChecker;
+    if(fileChecker.length() > 0){
+      isGood = true;
+    }
+  }
+  readAFile(fileChecker);
+}
+
 string fileReader::readAFile(string file){
   fileReader fr;
   string line = " ";
@@ -34,10 +51,7 @@ string fileReader::readAFile(string file){
  void fileReader::isBalanced(string& line, int& lineCounter, GenStack<char>& store, fstream& inputStream)
 //void fileReader::isBalanced(string& line, int& lineCounter, GenStack<char>& store, fstream& inputStream, char& LEFT_ROUND_PARENTHESIS, char& RIGHT_ROUND_PARENTHESIS, char& LEFT_CURLY_BRACKETS, char& RIGHT_CURLY_BRACKETS, char& LEFT_SQUARE_BRACKETS, char& RIGHT_SQUARE_BRACKETS)
 {
-
-//int delimiterLeft = line.length();
-  //
-  cout << line << endl;
+  //cout << line << endl;
   for (int i = 0; i < line.length(); ++i)
   {
     if (line[i] ==  LEFT_ROUND_PARENTHESIS || line[i] ==  LEFT_SQUARE_BRACKETS || line[i] ==  LEFT_CURLY_BRACKETS)
@@ -49,26 +63,31 @@ string fileReader::readAFile(string file){
 
     else if (line[i] ==  RIGHT_ROUND_PARENTHESIS || line[i] ==  RIGHT_SQUARE_BRACKETS || line[i] ==  RIGHT_CURLY_BRACKETS)
     {
-      // If current current character is not opening bracket, then it must be closing. So stack cannot be empty at this point.
+      //If current current character is not opening bracket, then it must be closing. So stack cannot be empty at this point.
       if (store.isEmpty()){
-        cout << "Missing an open delimiter at line " << lineCounter << endl;
+        cout << "There is an unmatched delimeter at line: " << lineCounter << endl;
+          cout << "At position " << i << " " << line[i] << endl;
         exit(1);
       } // end of if isEmpty()
       if(line[i] ==  RIGHT_ROUND_PARENTHESIS && store.peek() == LEFT_ROUND_PARENTHESIS && (!store.isEmpty())){
         store.pop();
+
         continue;
       }// end of if statement - ()
       else if (line[i] ==  RIGHT_CURLY_BRACKETS && store.peek() == LEFT_CURLY_BRACKETS && (!store.isEmpty())){
         store.pop();
+
         continue;
       } // end of if statement - {}
       else if (line[i] ==  RIGHT_SQUARE_BRACKETS && store.peek() == LEFT_SQUARE_BRACKETS && (!store.isEmpty())){
         store.pop();
+
         continue;
       } // end of if statement - []
       else
       {
         cout << "There is an unmatched delimeter at line: " << lineCounter << endl;
+        cout << "At position " << i << " is a " << line[i] << " should be a " << Pair(store.peek()) << " instead." << endl;
         exit(1);
       }
     } // end of if right delimeter statement
@@ -80,6 +99,18 @@ string fileReader::readAFile(string file){
     cout << "Perfectly balanced, as things should be" << endl;
   }
   else{
-    cout << "Unbalanced" << endl;
+    cout << "End of file: Missing a " << Pair(store.pop()) << endl;
   }
 }// end of isBalanced()
+
+char fileReader::Pair(char c){
+  if (c == LEFT_ROUND_PARENTHESIS){
+    return RIGHT_ROUND_PARENTHESIS;
+  }
+  if (c == LEFT_SQUARE_BRACKETS){
+    return RIGHT_SQUARE_BRACKETS;
+  }
+  if (c == LEFT_CURLY_BRACKETS){
+    return RIGHT_CURLY_BRACKETS;
+  }
+}
